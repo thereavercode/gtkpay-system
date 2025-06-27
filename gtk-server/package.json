@@ -1,0 +1,27 @@
+{
+  "name": "jenga-receipt-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "tunnel": "ngrok http 8080 --region=eu --subdomain=jenga-receipt-server",
+    "start-dev": "concurrently \"npm run dev\" \"npm run tunnel\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "africastalking": "^0.7.3",
+    "axios": "^1.9.0",
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "ngrok": "^5.0.0-beta.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.10"
+  }
+}
