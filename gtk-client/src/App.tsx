@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import PaymentForm from "./components/PaymentForm";
 import Dashboard from "./components/dashboard";
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 function App() {
   const [showDashboard, setShowDashboard] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
-      <button
-        className="mb-6 px-4 py-2 bg-blue-600 text-white rounded"
-        onClick={() => setShowDashboard(!showDashboard)}
-      >
-        {showDashboard ? "Show Payment Form" : "Show Dashboard"}
-      </button>
-
-      {showDashboard ? <Dashboard /> : <PaymentForm />}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<PaymentForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 }
 
